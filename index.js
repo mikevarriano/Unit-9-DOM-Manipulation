@@ -1,8 +1,8 @@
 const DOMSelectors = {
   button: document.getElementById("btn"),
   text: document.querySelector("#text"),
-  point: document.querySelectorAll(".point"),
-  box: document.getElementById("#big-black-box"),
+  points: document.getElementsByClassName("point"),
+  box: document.getElementById("big-black-box"),
 };
 console.log(DOMSelectors.button);
 
@@ -11,8 +11,14 @@ function backgroundAndText(background, text) {
   text.innerContent = "This is now a big red box";
   text.style.fontSize = "40px";
 }
-backgroundAndText(DOMSelectors.box, DOMSelectors.text);
 
 DOMSelectors.button.addEventListener("click", function () {
   backgroundAndText(DOMSelectors.box, DOMSelectors.text);
 });
+
+function changeLi() {
+  Array.prototype.forEach.call(DOMSelectors.points, (point) => {
+    console.log(point);
+  });
+}
+changeLi();
